@@ -123,30 +123,32 @@ public class Home_work_1 {
         System.out.println(Arrays.toString(forSort)); // проверочные выводы
 //        for (int iter = 0; iter <= dl-1; iter++)
         int source;
-        for (int iter = 0; iter <= dl - 1; iter++) {
+        for (int iter = 0; iter <= (dl - 1); iter++) {
             source = 7 - forSort[iter];
             int firI = 0;
             int LasI = dl - 1;
-//            System.out.println(LasI);
+//            System.out.println(" ПОСЛЕДНЕЕ " + LasI);
             while (firI <= LasI) {
-                int MidI = firI + (firI + LasI) / 2;
-//                System.out.println(MidI);
+                int MidI =(firI + LasI) / 2;
+//                System.out.println("Cреднее " + MidI);
                 if (forSort[MidI] == source) {
                     System.out.printf(" Нужные пары числе %s + %s", forSort[iter], forSort[MidI]);
                     break;
                 } else if (forSort[MidI] < source) {
-                    firI = MidI + 1;
-                    break;
-                } else {
+                    firI = MidI + 1; // и вот здесь взрывается на 2 цикле выдаёт вместо 4 9
+//                    System.out.println("После увеличиения выдали" + firI);
+                } else if (forSort[MidI] > source) {
                     LasI = MidI - 1;
-                    break;
+//                    System.out.println("После уменьшения выдали" + LasI);
+                    }
                 }
+
             }
         }
     }
 
 
-        }
+
 
 
 
