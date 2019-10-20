@@ -132,7 +132,7 @@ public class Home_work_1 {
                 int MidI =(firI + LasI) / 2;
 //                System.out.println("Cреднее " + MidI);
                 if (forSort[MidI] == source) {
-                    System.out.printf(" Нужные пары числе %s + %s", forSort[iter], forSort[MidI]);
+                    System.out.printf(" Нужные пары чисел %s + %s", forSort[iter], forSort[MidI]);
                     break;
                 } else if (forSort[MidI] < source) {
                     firI = MidI + 1; // и вот здесь взрывается на 2 цикле выдаёт вместо 4 9
