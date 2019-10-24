@@ -1,35 +1,35 @@
 package HW_Cl_Meth.Kat_tusk;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class KatForHW {
     private String name;
     private int age;
-    private  String colour;
+    private String colour;
     private String ownerAdress;
+
+
 
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
-        Pattern patternName = Pattern.compile("(?=.[0-9a-zA-Z!,/])");
-        Matcher matcherName = patternName.matcher(this.name);
-        System.out.println(matcherName.find());
-        if (matcherName.find()) {
+        if (!name.isEmpty()) {
             this.name = name;
-        } else this.name = "Nameless";
+        } else {
+            this.name = "Nameless";
+            System.out.println("Задайте коту имя!");
+        }
     }
-
     public int getAge() {
         return age;
     }
 
     public void setAge(int age) {
-        if (this.age != 0) {
+        if (age > 0) {
             this.age = age;
-        } else this.age = 268;
+        } else {
+            this.age = 268;
+            System.out.println("Задайте возраст кота!");
+        }
     }
 
     public String getColour() {
@@ -37,31 +37,52 @@ public class KatForHW {
     }
 
     public void setColour(String colour) {
-        Pattern patternC = Pattern.compile("(?=.[0-9a-zA-Z!,/])");
-        Matcher matcher = patternC.matcher(this.colour);
-        if (matcher.find() == true ) {
+        if(!colour.isEmpty()) {
             this.colour = colour;
-        } else this.colour = "unkolored";
+        } else {
+            this.colour = "Unknown";
+            System.out.println("Укажите цвет кота!");
+        }
     }
 
-    public String getOwnerAdree() {
+    public String getOwnerAdress() {
         return ownerAdress;
     }
 
-    public void setOwnerAdree(String ownerAdree) {
-        Pattern patternA = Pattern.compile("(?=.[0-9a-zA-Z!,/])");
-        Matcher matcher = patternA.matcher(this.ownerAdress);
-        if (matcher.find() == true ) {
-            this.ownerAdress= ownerAdress;
-        } else this.ownerAdress= "ownerAdree not found";
+    public void setOwnerAdress(String ownerAdress) {
+        if (!ownerAdress.isEmpty()) {
+            this.ownerAdress = ownerAdress;
+        } else {
+            this.ownerAdress = "Unknown";
+            System.out.println("Укажите адрес владельца");
+        }
     }
-    public KatForHW(){}
-    public KatForHW(String name){
+    public KatForHW() { // При использовании данного метода проверки не работаеют
+    }
+    public KatForHW(String name) {
         setName(name);
     }
+    public KatForHW(String name, int age) {
+        setName(name);
+        setAge(age);
+    }
+
+    public KatForHW(String name, int age, String colour) {
+        setName(name);
+        setAge(age);
+        setColour(colour);
+    }
+
+    public KatForHW(String name, int age, String colour, String ownerAdress) {
+        setName(name);
+        setAge(age);
+        setColour(colour);
+        setOwnerAdress(ownerAdress);
+    }
+
 
     @Override
-    public String  toString() {
+    public String toString() {
         return "KatForHW{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
