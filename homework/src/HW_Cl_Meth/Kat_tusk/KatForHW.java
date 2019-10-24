@@ -7,10 +7,10 @@ public class KatForHW {
     private String ownerAdress;
 
 
-
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         if (!name.isEmpty()) {
             this.name = name;
@@ -19,6 +19,7 @@ public class KatForHW {
             System.out.println("Задайте коту имя!");
         }
     }
+
     public int getAge() {
         return age;
     }
@@ -37,7 +38,7 @@ public class KatForHW {
     }
 
     public void setColour(String colour) {
-        if(!colour.isEmpty()) {
+        if (!colour.isEmpty()) {
             this.colour = colour;
         } else {
             this.colour = "Unknown";
@@ -57,20 +58,43 @@ public class KatForHW {
             System.out.println("Укажите адрес владельца");
         }
     }
+
     public KatForHW() { // При использовании данного метода проверки не работаеют
+        this.name = "Namless";
+        System.out.println("Задайте коту имя!");
+        this.age = 268;
+        System.out.println("Задайте возраст кота!");
+        this.colour ="Unknown";
+        System.out.println("Укажите цвет кота!");
+        this.ownerAdress = "Unknown";
+        System.out.println("Укажите адрес владельца");
     }
+
     public KatForHW(String name) {
         setName(name);
+        this.age = 268;
+        System.out.println("Задайте возраст кота!");
+        this.colour ="Unknown";
+        System.out.println("Укажите цвет кота!");
+        this.ownerAdress = "Unknown";
+        System.out.println("Укажите адрес владельца");
     }
+
     public KatForHW(String name, int age) {
         setName(name);
         setAge(age);
+        this.colour ="Unknown";
+        System.out.println("Укажите цвет кота!");
+        this.ownerAdress = "Unknown";
+        System.out.println("Укажите адрес владельца");
     }
 
     public KatForHW(String name, int age, String colour) {
         setName(name);
         setAge(age);
         setColour(colour);
+        this.ownerAdress = "Unknown";
+        System.out.println("Укажите адрес владельца");
     }
 
     public KatForHW(String name, int age, String colour, String ownerAdress) {

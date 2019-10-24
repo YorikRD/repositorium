@@ -50,9 +50,13 @@ public class Optional {
         KatForHW borka = new KatForHW();
         System.out.println(borka);
         KatForHW sun_ku =new KatForHW("sun_ku");
+        System.out.println(sun_ku);
         KatForHW sun_ku2 =new KatForHW("sun_ku2", 3);
+        System.out.println(sun_ku2);
         KatForHW sun_ku3 =new KatForHW("sun_ku3",3, "white");
+        System.out.println(sun_ku3);
         KatForHW sun_ku4 =new KatForHW("sun_ku4",12,"Black", "Hell");
+        System.out.println(sun_ku4);
         KatForHW sun_ku5 =new KatForHW("",0,"Black", "Hell");////
         System.out.println(sun_ku5);
 
