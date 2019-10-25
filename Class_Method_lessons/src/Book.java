@@ -35,7 +35,6 @@ public class Book {
     // Вв методах присвоения Войд - ретурн просто прекращает работу метода.
     // методы которые возвращают значения свойст - геттеры тоже alt + enter
 
-
     public String getTitle() {
         return title;// return прекращает работу метода и возвращает указанное значение.
     }
@@ -52,7 +51,12 @@ public class Book {
         return availeble;
     }
 
-    public Book() {} // Нужно добавить если есть иной видимый конструктор
+    public Book() {
+        title = "Unnamed";
+        auther ="Unknown";
+        isforHome = false;
+        availeble = false;
+    } // Нужно добавить если есть иной видимый конструктор
     public Book(String title, String auther){
         setTitle(title);
         setAuther(auther);

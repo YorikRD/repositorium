@@ -4,7 +4,12 @@ public class Main {
         System.out.println(java);
         Book cleanCode = new Book(); // 2 разный объекта которых объединяет только общий класс.
         Book forBegginers = new Book("Руководство для начинающих", "Герберт Шилдт");
-        Book personal = new Book("Властелин колец", "Толкиен", false, true);
+        Book personal = new Book("ВК", "Толкиен", false, true);
+        Book personal2 = new Book("Дюна","Герберт Френк",true, true);
+        Book personal3 = new Book("Гиперион","Ствиенс",true, false);
+        Book personal4 = new Book("259","Ствиенс",true, false);
+
+
         //       java.title = "Философия Java"; // Для доступа к свойствам объекта нужно указать его имя, поставить точку. и указать свойство
 //       cleanCode.title = "Чистый код"; // Доступ к приватному свойству и методу есть только внутри класа (между фигурных скобок класа)
 //       java.auther = "Брюс Эккель";
@@ -30,6 +35,19 @@ public class Main {
         library1.addBook(java);
 //        System.out.println(library1);
         library1.addBook(cleanCode, personal, forBegginers);
+        library1.addBook(personal2,personal3);
         System.out.println(library1);
+//        library1.checkByTitle("ВК");
+        library1.checkByTitle("2dfjs");
+        library1.takeHomeBytitle("Гиперион");
+        library1.takeHomeBytitle("Дюна");
+        library1.takeHomeBytitle("Дюна");
+        library1.takeHomeBytitle("Искуссство войны");
+//        library1.checkByTitle("Искусство");
+        library1.takeHomeBytitle("ВК");
+        library1.readhearByTitle("ВК");
+        library1.readhearByTitle("ВК");
+
+
     }
 }
