@@ -5,9 +5,9 @@ public class Main {
         Book cleanCode = new Book(); // 2 разный объекта которых объединяет только общий класс.
         Book forBegginers = new Book("Руководство для начинающих", "Герберт Шилдт");
         Book personal = new Book("ВК", "Толкиен", false, true);
-        Book personal2 = new Book("Дюна","Герберт Френк",true, true);
-        Book personal3 = new Book("Гиперион","Ствиенс",true, false);
-        Book personal4 = new Book("259","Ствиенс",true, false);
+        Book personal2 = new Book("Дюна", "Герберт Френк", true, true);
+        Book personal3 = new Book("Гиперион", "Ствиенс", true, false);
+        Book personal4 = new Book("259", "Ствиенс", true, false);
 
 
         //       java.title = "Философия Java"; // Для доступа к свойствам объекта нужно указать его имя, поставить точку. и указать свойство
@@ -35,7 +35,7 @@ public class Main {
         library1.addBook(java);
 //        System.out.println(library1);
         library1.addBook(cleanCode, personal, forBegginers);
-        library1.addBook(personal2,personal3);
+        library1.addBook(personal2, personal3);
         System.out.println(library1);
 //        library1.checkByTitle("ВК");
         library1.checkByTitle("2dfjs");

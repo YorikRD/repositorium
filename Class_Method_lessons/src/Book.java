@@ -13,14 +13,14 @@ public class Book {
         //Войд не возвращает знаечения а только меняет переменную
 //        this.title = title; // this - ссылка на текущий объект данного класа.
         // "" != пустая строка.
-        if (title != null && !"".equals(title) ) { // в нормальном виде через регулярное значение.
+        if (title != null && !"".equals(title)) { // в нормальном виде через регулярное значение.
             this.title = title;
         }
     }
 
     public void setAuther(String auther) {
         this.auther = auther;
-        if (auther != null && !"".equals(auther) ) {
+        if (auther != null && !"".equals(auther)) {
             this.auther = auther;
         }
     }
@@ -53,15 +53,17 @@ public class Book {
 
     public Book() {
         title = "Unnamed";
-        auther ="Unknown";
+        auther = "Unknown";
         isforHome = false;
         availeble = false;
     } // Нужно добавить если есть иной видимый конструктор
-    public Book(String title, String auther){
+
+    public Book(String title, String auther) {
         setTitle(title);
         setAuther(auther);
     }
-    public Book(String title, String auther, boolean isforHome, boolean availeble){
+
+    public Book(String title, String auther, boolean isforHome, boolean availeble) {
         setTitle(title);
         setAuther(auther);
         setIsforHome(isforHome);
