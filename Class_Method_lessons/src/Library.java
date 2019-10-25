@@ -88,6 +88,22 @@ public class Library {
         }
     }
 
+    public void returnBookByTitle(String title) {
+        for (int i = 0; i <= this.books.length; i++) {
+            if (this.books[i] == null) {
+                System.out.println(title + " - Книга с таким названием в библиотеке не значится желаете добавить новую?");
+                break;
+            }
+            if (books[i].getTitle().equals(title)) {
+                if (!books[i].isAvaileble()) {
+                    System.out.println(books[i].getTitle() + " Благодарим за возврат книни");
+                    books[i].setAvaileble(true);
+                    return;
+                }
+            }
+        }
+    }
+
     public Book[] getBooks() {
         return books;
     }

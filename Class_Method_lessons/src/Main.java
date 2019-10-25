@@ -47,6 +47,10 @@ public class Main {
         library1.takeHomeBytitle("ВК");
         library1.readhearByTitle("ВК");
         library1.readhearByTitle("ВК");
+        library1.returnBookByTitle("ВК");
+        library1.readhearByTitle("ВК");
+        library1.returnBookByTitle("дывар");
+
 
 
     }
