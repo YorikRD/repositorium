@@ -86,7 +86,7 @@ public class Library {
         } return false;
     }
 
-    public void readhearByTitle(String title) {
+    public boolean readhearByTitle(String title) {
         for (int i = 0; i <= this.books.length; i++) {
             if (this.books[i] == null) {
                 System.out.println(title + " - Книга с таким названием в библиотеке остуствует");
@@ -96,12 +96,12 @@ public class Library {
                 if (books[i].isAvaileble()) {
                     System.out.println(books[i].getTitle() + " - доступная в читальном зале. И вы получаете её прямо сейчас");
                     books[i].setAvaileble(false);
-                    return;
+                    return true;
                 } else
                     System.out.println(books[i].getTitle() + " - К сожалению книга уже на руках, вы можете поискать её в читальном зале");
-                return;
+                return false;
             }
-        }
+        } return false;
     }
 
     public void returnBookByTitle(String title) {
