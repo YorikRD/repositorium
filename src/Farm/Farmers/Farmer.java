@@ -38,6 +38,7 @@ import Farm.Farm;
     @Override
     public void collect(Domestic_Animal animal) { // Первая запись класс. вторая запись конкретный экземпляр класса.
         this.resource = this.resource + animal.getResourceOutput();
+//        System.out.println("У фермера есть " + this.resource);
 
     }
 
@@ -73,4 +74,13 @@ import Farm.Farm;
         this.resource = resource;
         this.isAllive = isAllive;
     }
-}
+
+     @Override
+     public String toString() {
+         return "Farmer{" +
+                 "farmName='" + farmName + '\'' +
+                 ", resource=" + resource +
+                 ", isAllive=" + isAllive +
+                 '}';
+     }
+ }

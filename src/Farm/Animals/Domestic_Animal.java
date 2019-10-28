@@ -45,4 +45,17 @@ public class Domestic_Animal extends Animal {
         this.isAlive = isAlive;
         this.isConsumable = isConsumable;
     }
+
+    @Override
+    public String toString() {
+        return "Domestic_Animal{" +
+                "health=" + health +
+                ", resourceOutput=" + resourceOutput +
+                ", isAlive=" + isAlive +
+                ", isConsumable=" + isConsumable +
+                ", name='" + name + '\'' +
+                ", speed=" + speed +
+                ", weight=" + weight +
+                '}';
+    }
 }

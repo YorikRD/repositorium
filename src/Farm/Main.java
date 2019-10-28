@@ -19,13 +19,19 @@ public class Main {
        Farmer petrovich = new Farmer("Петрович",3,true);
        Farm farm1 = new Farm(15, petrovich );
        farm1.addDomwest(Cow1,Cow2,Rab1,Rab2,Rab3,Chi1,Chi2,Chi3,Chi4,Chi5);
-        System.out.println(farm1);
-        System.out.println(farm1.getFarm());
+//        System.out.println(farm1);
+//        System.out.println(farm1.getFarm());
+        petrovich.collect(farm1.getFarm()[0]);
+        System.out.println(petrovich);
+        for (int i =0; i<=farm1.getFarm().length - 1;i++){
+            if (farm1.getFarm()[i] == null) {
+                break;
+            } Domestic_Animal doy = farm1.getFarm()[i];
+            petrovich.collect(doy);
+        } //проврека методов
 
-        for (int i =0; i<=farm1.getFarm().length;i++){
-         petrovich.collect(farm1.getFarm()[i]);
-            System.out.println(petrovich.getResource());
-        }
+        farm1.dayCycle(22);
+        System.out.println(petrovich);
 
 
 

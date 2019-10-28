@@ -34,15 +34,22 @@ public class Farm {
         }
     }
 
-    public void dayCycle(int Cycle){
-        farmer.consumeRes();
-        System.out.println(farmer.getResource());
-        if (farmer.dieFrHung()){
-            System.out.println("Фермер " +farmer.getFarmName() + "Умер от голода" );
-            return;
-        }
-        for (int i=0;i<= farmSize-1; i++){
-            farmer.collect(farm[i]);
+    public void dayCycle(int cycle) {
+        for (int ci = 0; ci <= cycle; ci++) {
+            farmer.consumeRes();
+//            System.out.println(farmer.getResource());
+            if (farmer.dieFrHung()) {
+                System.out.println("Фермер " + farmer.getFarmName() + "Умер от голода");
+                return;
+            }
+            for (int i = 0; i <= farm.length - 1; i++) {
+                if (farm[i] == null) {
+                    break;
+                }
+                Domestic_Animal doy = farm[i];
+                farmer.collect(doy);
+            }
+
         }
     }
 
