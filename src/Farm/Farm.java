@@ -46,7 +46,9 @@ public class Farm {
         }
     }
 
-
+    public Domestic_Animal[] getFarm() {
+        return farm;
+    }
 
     public Farm(int farmSize, Farmer farmer) {
         this.farmSize = farmSize;

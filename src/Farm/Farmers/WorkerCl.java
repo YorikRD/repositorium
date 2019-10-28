@@ -1,10 +1,11 @@
 package Farm.Farmers;
 
 import Farm.Animals.Domestic_Animal;
+import Farm.Animals.WildAnimal;
 
 abstract public class WorkerCl implements Worker {
     @Override
-    public void collect() {
+    public void collect(Domestic_Animal animal) {
 
     }
 
@@ -24,11 +25,6 @@ abstract public class WorkerCl implements Worker {
     }
 
     @Override
-    public void collect(Domestic_Animal animal) {
-
-    }
-
-    @Override
     public void scareWild() {
 
     }
@@ -38,3 +34,5 @@ abstract public class WorkerCl implements Worker {
 
     }
 }
+
+

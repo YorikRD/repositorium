@@ -51,12 +51,12 @@ import Farm.Farm;
 
     }
 
-    @Override
-    public void feed() {
+     @Override
+     public void feed() {
+         super.feed();
+     }
 
-    }
-
-    @Override
+     @Override
     public boolean dieFrHung() {
         if (this.resource <= 0){
             return true;
