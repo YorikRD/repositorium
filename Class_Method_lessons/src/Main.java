@@ -8,6 +8,9 @@ public class Main {
         Book personal2 = new Book("Дюна", "Герберт Френк", true, true);
         Book personal3 = new Book("Гиперион", "Ствиенс", true, false);
         Book personal4 = new Book("259", "Ствиенс", true, false);
+        Book personal5 = new Book("2529", "Ствиенс", true, false);
+        Book personal6 = new Book("223ORF9", "Ствиенс", true, false);
+        Book personal7 = new Book("259difh", "Ствиенс", true, false);
 
 
         //       java.title = "Философия Java"; // Для доступа к свойствам объекта нужно указать его имя, поставить точку. и указать свойство
@@ -41,15 +44,17 @@ public class Main {
         library1.checkByTitle("2dfjs");
         library1.takeHomeBytitle("Гиперион");
         library1.takeHomeBytitle("Дюна");
-        library1.takeHomeBytitle("Дюна");
-        library1.takeHomeBytitle("Искуссство войны");
-//        library1.checkByTitle("Искусство");
-        library1.takeHomeBytitle("ВК");
-        library1.readhearByTitle("ВК");
-        library1.readhearByTitle("ВК");
-        library1.returnBookByTitle("ВК");
-        library1.readhearByTitle("ВК");
-        library1.returnBookByTitle("дывар");
+//        library1.takeHomeBytitle("Дюна");
+//        library1.takeHomeBytitle("Искуссство войны");
+////        library1.checkByTitle("Искусство");
+//        library1.takeHomeBytitle("ВК");
+//        library1.readhearByTitle("ВК");
+//        library1.readhearByTitle("ВК");
+//        library1.returnBookByTitle("ВК");
+//        library1.readhearByTitle("ВК");
+//        library1.returnBookByTitle("дывар");
+        //Добавить проверку влезают ли книги.
+        library1.addBook(personal4, personal5, personal6, personal6, personal7);
 
 
 

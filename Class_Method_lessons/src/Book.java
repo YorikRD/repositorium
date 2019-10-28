@@ -13,14 +13,14 @@ public class Book {
         //Войд не возвращает знаечения а только меняет переменную
 //        this.title = title; // this - ссылка на текущий объект данного класа.
         // "" != пустая строка.
-        if (title != null && !"".equals(title)) { // в нормальном виде через регулярное значение.
+        if (title != null && !title.isEmpty()) { // в нормальном виде через регулярное значение.
             this.title = title;
         }
     }
 
     public void setAuther(String auther) {
         this.auther = auther;
-        if (auther != null && !"".equals(auther)) {
+        if (auther != null && !auther.isEmpty()) {
             this.auther = auther;
         }
     }

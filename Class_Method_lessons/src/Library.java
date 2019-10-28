@@ -14,11 +14,26 @@ public class Library {
                 System.out.println(this.books[i]);
                 return;  // return
             }
+            System.out.println("Библиотека полностью заполнена");
         }
     }
 
     public void addBook(Book... newBooks) {
+        int freeSp = 0;
         for (int i = 0; i < this.books.length; i++) {
+            if (this.books[i] == null) {
+                freeSp = freeSp + 1;
+                System.out.println(freeSp);
+            }
+        }
+            System.out.println(freeSp);
+            if (newBooks.length > freeSp) {
+                System.out.println("К сожалению в библиотеке не хватает места для добавления " + (newBooks.length - freeSp) + " Книг");
+                return;
+            }
+               for (int i = 0; i < this.books.length; i++) {
+//            System.out.println(this.books.length);
+
             if (this.books[i] == null) {
                 System.arraycopy(newBooks, 0, this.books,
                         i, newBooks.length);
@@ -27,7 +42,7 @@ public class Library {
         }
     }
 
-    public void checkByTitle(String title) {
+    public  boolean checkByTitle(String title) {
         System.out.println(this.books.length);
         for (int i = 0; i <= this.books.length; i++) {//
             Book forSurch = new Book();
@@ -39,13 +54,14 @@ public class Library {
                 System.out.println("Step");
                 System.out.println("Книга есть в каталоге библиотеки");
                 System.out.println(forSurch);
-                return;
+                return true;
             }
         }
         System.out.println("Книга в каталоге библиотеки отсутсвует");
+        return false;
     }
 
-    public void takeHomeBytitle(String title) {
+    public boolean takeHomeBytitle(String title) {
         for (int i = 0; i <= this.books.length; i++) {
             if (this.books[i] == null) {
                 System.out.println(title + " - Книга с таким названием в библиотеке остуствует");
@@ -59,15 +75,15 @@ public class Library {
                     if (forTakinghome.isAvaileble()) {
                         System.out.println(forTakinghome.getTitle() + " - И вы получаете её прямо сейчас");
                         books[i].setAvaileble(false);
-                        return;
+                        return true;
                     } else System.out.println(forTakinghome.getTitle() + " - К сожалению книга уже на руках");
-                    return;
+                    return false;
                 } else if (!forTakinghome.isIsforHome()) {
                     System.out.println(forTakinghome.getTitle() + " - К сожаление книга доступна только в читальном зале");
-                    break;
+                    return false;
                 }
             }
-        }
+        } return false;
     }
 
     public void readhearByTitle(String title) {
