@@ -4,6 +4,8 @@ import Farm.Animals.Domestic_Animal;
 import Farm.Animals.WildAnimal;
 import Farm.Farmers.Farmer;
 
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
       Domestic_Animal cow1 = new Domestic_Animal("Cow",5,20,12,3,true, true);
@@ -17,23 +19,18 @@ public class Main {
         Domestic_Animal chi4 =new Domestic_Animal("Chikken4",5,2,1,1,true, true);
         Domestic_Animal chi5 =new Domestic_Animal("Chikken5",5,2,1,1,true, true);
         Domestic_Animal cat =new Domestic_Animal("Cat",15,4,3,0,true, false);
-
         WildAnimal fox = new WildAnimal("Fox",16,12,3,0);
         WildAnimal wolf = new WildAnimal("Wolf",10,20,6,0);
         WildAnimal bear = new WildAnimal("Bear",6,102,30,0);
 
-        WildAnimal[] forest = new WildAnimal[3];
-        forest[0] = fox;
-        forest[1] = wolf;
-        forest[2] = bear;
-        bear.hunt(cow1);
-        System.out.println(cow1);
+
 
 
        Farmer petrovich = new Farmer("Петрович",6,true);
        Farm farm1 = new Farm(15, petrovich );
        farm1.addDomest(cow1,cow2,rab1,rab2,rab3,chi1,chi2,chi3,chi4,chi5,cat);
-//        System.out.println(farm1);
+       farm1.addWild(fox,wolf,bear);
+               System.out.println(farm1);
 ////        System.out.println(farm1.getFarm());
 //            petrovich.collect(farm1.getFarm()[0]);
 //            System.out.println(petrovich);
@@ -44,11 +41,11 @@ public class Main {
 //                petrovich.collect(doy);
 //        } //проврека методов
 
-        farm1.dayCycle(22);
+
+        farm1.dayCycle(20);
         System.out.println(petrovich);
 
-
-
-
     }
+
 }
+
