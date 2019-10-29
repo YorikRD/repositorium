@@ -1,8 +1,8 @@
 package Farm.Animals;
 
 public class WildAnimal extends Animal {
-    int strength = 1;
-    int frigtened =0;
+   protected int strength = 1;
+   protected  int frigtened =0;
 
     public int getFrigtened() {
         return frigtened;
@@ -19,10 +19,27 @@ public class WildAnimal extends Animal {
     public void setStrength(int strength) {
         this.strength = strength;
     }
+    public void hunt (Domestic_Animal animal){
+        if (this.speed >= animal.getSpeed()) {
+            animal.setHealth(animal.getHealth()-this.strength);
+            animal.setAlive();
+        }
+    }
 
     public WildAnimal(String name, int speed, int weight, int strength, int frigtened) {
         super(name, speed, weight);
         this.strength = strength;
         this.frigtened = frigtened;
+    }
+
+    @Override
+    public String toString() {
+        return "WildAnimal{" +
+                "strength=" + strength +
+                ", frigtened=" + frigtened +
+                ", name='" + name + '\'' +
+                ", speed=" + speed +
+                ", weight=" + weight +
+                '}';
     }
 }

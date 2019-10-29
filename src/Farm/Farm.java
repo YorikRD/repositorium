@@ -10,7 +10,7 @@ public class Farm {
     private Domestic_Animal[] farm = new Domestic_Animal[farmSize];
     Farmer farmer;
 
-    public void addDomwest(Domestic_Animal... newDomestic_Animals) { //Многоточие в 3 точки это добавление массива
+    public void addDomest(Domestic_Animal... newDomestic_Animals) { //Многоточие в 3 точки это добавление массива
         int freeSp = 0;
         for (int i = 0; i < this.farm.length; i++) {
             if (this.farm[i] == null) {
@@ -35,20 +35,29 @@ public class Farm {
     }
 
     public void dayCycle(int cycle) {
-        for (int ci = 0; ci <= cycle; ci++) {
-            farmer.consumeRes();
+        for (int ci = 0; ci <= cycle; ci++) { //
+            farmer.consumeRes(); //Пункт 1 фермер ест.
 //            System.out.println(farmer.getResource());
-            if (farmer.dieFrHung()) {
-                System.out.println("Фермер " + farmer.getFarmName() + "Умер от голода");
+            if (farmer.dieFrHung()) { // проверка не умер ли он от голода
+                System.out.println("Фермер " + farmer.getFarmName() + "Умер от голода" + "На "+ci +" День");
                 return;
             }
             for (int i = 0; i <= farm.length - 1; i++) {
                 if (farm[i] == null) {
                     break;
                 }
-                Domestic_Animal doy = farm[i];
-                farmer.collect(doy);
+                farmer.collect(farm[i]); //Собираем ресурс, в коллект встроена проверка на живость животного.
             }
+            int alive = 0;
+            for (int i=0;  i <= farm.length - 1; i++){
+                if (farm[i].isAlive()){
+                    alive++;
+                }
+            }
+            Domestic_Animal[] huntGr = new Domestic_Animal[alive]; // Создаем массив живых животных для охоты.
+
+
+
 
         }
     }

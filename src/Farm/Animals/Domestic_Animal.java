@@ -3,7 +3,7 @@ package Farm.Animals;
 public class Domestic_Animal extends Animal {
     protected int health = 3;
     protected int resourceOutput = 0;
-    public boolean isAlive = true;
+    protected boolean isAlive = true;
     protected boolean isConsumable = true;
 
     public int getHealth() {
@@ -26,8 +26,10 @@ public class Domestic_Animal extends Animal {
         return isAlive;
     }
 
-    public void setAlive(boolean alive) {
-        isAlive = alive;
+    public void setAlive() {
+        if (this.health>0) {
+            isAlive = true;
+        } isAlive = false;
     }
 
     public boolean isConsumable() {

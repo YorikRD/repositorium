@@ -5,9 +5,9 @@ import Farm.Animals.Domestic_Animal;
 import Farm.Farm;
 
  public class Farmer extends WorkerCl {
-    String farmName = "Unnamed till Now";
-    int resource = 6;
-    private Boolean isAllive = true;
+     protected String farmName = "Unnamed till Now";
+     protected int resource = 6;
+     private Boolean isAllive = true;
 
     public String getFarmName() {
         return farmName;
@@ -37,9 +37,9 @@ import Farm.Farm;
 
     @Override
     public void collect(Domestic_Animal animal) { // Первая запись класс. вторая запись конкретный экземпляр класса.
+        if (animal.isAlive()){
         this.resource = this.resource + animal.getResourceOutput();
-//        System.out.println("У фермера есть " + this.resource);
-
+        } // не доим мёртвый коров!
     }
 
     @Override
