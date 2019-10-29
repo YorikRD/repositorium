@@ -22,7 +22,6 @@ public class WildAnimal extends Animal {
     public void hunt (Domestic_Animal animal){
         if (this.speed >= animal.getSpeed()) {
             animal.setHealth(animal.getHealth()-this.strength);
-            animal.setAlive();
         }
     }
 

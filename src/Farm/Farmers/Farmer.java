@@ -53,8 +53,10 @@ import Farm.Farm;
     }
 
      @Override
-     public void feed() {
-         super.feed();
+     public void feed(Domestic_Animal animal) {
+         if (animal.isAlive()){
+             animal.setHealth(animal.getHealth()+1);
+         }
      }
 
      @Override

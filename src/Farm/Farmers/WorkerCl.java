@@ -15,7 +15,7 @@ abstract public class WorkerCl implements Worker {
     }
 
     @Override
-    public void feed() {
+    public void feed(Domestic_Animal animal) {
 
     }
 

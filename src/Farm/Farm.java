@@ -53,7 +53,7 @@ public class Farm {
             farmer.consumeRes(); //Пункт 1 фермер ест.
 //            System.out.println(farmer.getResource());
             if (farmer.dieFrHung()) { // проверка не умер ли он от голода
-                System.out.println("Фермер " + farmer.getFarmName() + "Умер от голода" + "На "+ci +" День");
+                System.out.println("Фермер " + farmer.getFarmName() + " Умер от голода" + "На "+ci +" День");
                 return;
             }
             for (int i = 0; i <= farm.length - 1; i++) {
@@ -62,14 +62,34 @@ public class Farm {
                 }
                 farmer.collect(farm[i]); //Собираем ресурс, в коллект встроена проверка на живость животного.
             }
-            int hunter = (int) ( Math.random() * forest.length ); // выбираем случайного охотника из леса
-            int prey = (int) ( Math.random() * farm.length ); // выбираем случайную жертву на ферме
-            System.out.println("случайная жертва - животное номер " + prey);
-            while (farm[prey]== null && !farm[prey].isAlive() ){ // перебираем жерт вока не найдется не нулевая и живая
-                prey = (int) ( Math.random() * farm.length ); // Тут ошибка!
-
+            int farmQuant = 0;
+            for (int l=0; l<farm.length; l++){
+                if (farm[l] != null) {
+                    farmQuant = farmQuant +1;
+                }
             }
-            forest[hunter].hunt(farm[prey]); //Охотимся
+            int farmAlive = 0;
+            for (int l=0; l<farmQuant; l++){
+                if (farm[l].isAlive() ) {
+                    farmAlive = farmAlive +1;
+                }
+            }
+            System.out.println("Идёт день номер "+ ci +" У фермера "+farmer.getResource() +" Еды. На ферме "+farmAlive+":Живых животных" );
+            if (farmAlive > 0) {
+                int hunter = (int) (Math.random() * forest.length); // выбираем случайного охотника из леса
+                int prey = (int) (Math.random() * farmQuant); // выбираем случайную жертву на ферме
+                System.out.println("случайная жертва до изменения - животное номер " + prey);
+                while (!farm[prey].isAlive()) { // перебираем жервт вока не найдется живая вставить прерывание
+                    prey = (int) (Math.random() * farmQuant); //Меняем чтоб она ещё и живая была
+
+                }
+                System.out.println("случайная жертва после измениея - животное номер " + prey);
+                System.out.println("Состояние жертвы до нападения " + farm[prey]);
+                forest[hunter].hunt(farm[prey]); //Охотимся
+                System.out.println("Хищник " + forest[hunter].getName() + " Напал на " + farm[prey].getName());
+                farm[prey].setAlive(); //Умираем
+                System.out.println("Состояние жертвы после нападения " + farm[prey]);
+            }
         }
     }
 

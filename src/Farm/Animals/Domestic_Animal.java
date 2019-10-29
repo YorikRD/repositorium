@@ -27,9 +27,12 @@ public class Domestic_Animal extends Animal {
     }
 
     public void setAlive() {
-        if (this.health>0) {
-            isAlive = true;
-        } isAlive = false;
+//        System.out.println(" Здоровье этой животины " +this.getHealth());
+        if (this.getHealth() > 1) {
+            System.out.println("Он жив");
+            this.isAlive = true;
+        } else {this.isAlive = false;
+        System.out.println("Он умер");}
     }
 
     public boolean isConsumable() {

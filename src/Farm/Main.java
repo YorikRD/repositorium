@@ -42,8 +42,10 @@ public class Main {
 //        } //проврека методов
 
 
-        farm1.dayCycle(20);
-        System.out.println(petrovich);
+
+
+        farm1.dayCycle(50);
+//        System.out.println(petrovich);
 
     }
 
