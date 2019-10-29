@@ -2,6 +2,7 @@ package Farm.Farmers;
 
 import Farm.Animals.Animal;
 import Farm.Animals.Domestic_Animal;
+import Farm.Animals.WildAnimal;
 import Farm.Farm;
 
  public class Farmer extends WorkerCl {
@@ -43,25 +44,36 @@ import Farm.Farm;
     }
 
     @Override
-    public void scareWild() {
-
+    public void scareWild(WildAnimal wildAnimal) {
+//        System.out.println("Попытка пугать");
+        int rand =(int) (Math.random()*100);
+        System.out.println(rand);
+        if (rand >= 75){
+           wildAnimal.setFri(wildAnimal.getFri()+1);
+//           System.out.println(wildAnimal.getName()+ "  Напуган");
+        }
     }
 
     @Override
-    public void killForRes() {
-
+    public void killForRes(Domestic_Animal animal) {
+        if (animal.isConsumable()&& animal.isAlive()) {
+            animal.setHealth(animal.getHealth() - 20);
+            animal.setAlive();
+            this.setResource(animal.getWeight() + this.getResource());
+            System.out.println("Фермер " + this.getFarmName() + " забрил " + animal.getName() + " Получив " + animal.getWeight() + " Пищи");
+        }
     }
 
      @Override
      public void feed(Domestic_Animal animal) {
-         if (animal.isAlive()){
+         if (animal.isAlive() && animal.getHealth()<animal.getMaxHp()){
              animal.setHealth(animal.getHealth()+1);
          }
      }
 
      @Override
     public boolean dieFrHung() {
-        if (this.resource <= 0){
+        if (this.resource < 0){
             return true;
         } return false;
     }

@@ -5,6 +5,15 @@ public class Domestic_Animal extends Animal {
     protected int resourceOutput = 0;
     protected boolean isAlive = true;
     protected boolean isConsumable = true;
+    protected int maxHp = 3;
+
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+    public void setMaxHp(int maxHp) {
+        this.maxHp = maxHp;
+    }
 
     public int getHealth() {
         return health;
@@ -43,12 +52,13 @@ public class Domestic_Animal extends Animal {
         isConsumable = consumable;
     }
 
-    public Domestic_Animal(String name, int speed, int weight, int health, int resourceOutput, boolean isAlive, boolean isConsumable) {
+    public Domestic_Animal(String name, int speed, int weight, int health, int resourceOutput, boolean isAlive, boolean isConsumable, int maxHp) {
         super(name, speed, weight);
         this.health = health;
         this.resourceOutput = resourceOutput;
         this.isAlive = isAlive;
         this.isConsumable = isConsumable;
+        this.maxHp = maxHp;
     }
 
     @Override
@@ -58,6 +68,7 @@ public class Domestic_Animal extends Animal {
                 ", resourceOutput=" + resourceOutput +
                 ", isAlive=" + isAlive +
                 ", isConsumable=" + isConsumable +
+                ", maxHp=" + maxHp +
                 ", name='" + name + '\'' +
                 ", speed=" + speed +
                 ", weight=" + weight +

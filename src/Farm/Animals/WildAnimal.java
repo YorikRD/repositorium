@@ -2,14 +2,14 @@ package Farm.Animals;
 
 public class WildAnimal extends Animal {
    protected int strength = 1;
-   protected  int frigtened =0;
+   protected int fri =0;
 
-    public int getFrigtened() {
-        return frigtened;
+    public int getFri () {
+        return fri;
     }
 
-    private void setFrigtened(int frigtened) {
-        this.frigtened = frigtened;
+    public void setFri (int frigtened) {
+        this.fri = frigtened;
     }
 
     public int getStrength() {
@@ -25,17 +25,17 @@ public class WildAnimal extends Animal {
         }
     }
 
-    public WildAnimal(String name, int speed, int weight, int strength, int frigtened) {
+    public WildAnimal(String name, int speed, int weight, int strength, int fri) {
         super(name, speed, weight);
         this.strength = strength;
-        this.frigtened = frigtened;
+        this.fri = fri;
     }
 
     @Override
     public String toString() {
         return "WildAnimal{" +
                 "strength=" + strength +
-                ", frigtened=" + frigtened +
+                ", frigtened=" + fri +
                 ", name='" + name + '\'' +
                 ", speed=" + speed +
                 ", weight=" + weight +

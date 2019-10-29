@@ -10,7 +10,7 @@ abstract public class WorkerCl implements Worker {
     }
 
     @Override
-    public void killForRes() {
+    public void killForRes(Domestic_Animal animal) {
 
     }
 
@@ -25,7 +25,7 @@ abstract public class WorkerCl implements Worker {
     }
 
     @Override
-    public void scareWild() {
+    public void scareWild(WildAnimal animal) {
 
     }
 
