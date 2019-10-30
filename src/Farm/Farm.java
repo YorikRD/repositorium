@@ -119,7 +119,14 @@ public class Farm {
                 }
             }
         }
-        System.out.println("Фурмер "+farmer.getwName()+" успешно пережил все трудности.");
+        System.out.println("Фермер "+farmer.getwName()+" успешно пережил все трудности.");
+        for (int i =0;i<=farm.length-1;i++){
+            if (farm[i] != null && farm[i].isAlive()){
+                System.out.println("Выжило животное № " + i);
+                System.out.println(farm[i].getName());
+                System.out.println(farm[i]);
+            }
+        }
     }
 
     public Domestic_Animal[] getFarm() {
