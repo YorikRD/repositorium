@@ -55,9 +55,10 @@ public class Farmer extends WorkerCl {
     public void killForRes(Domestic_Animal animal) {
         if (animal.isConsumable()&& animal.isAlive()) {
             animal.setHealth(animal.getHealth() - 20);
+            System.out.println("Фермер " + this.getwName() + " забрил " + animal.getName() + " Получив " + animal.getWeight() + " Пищи");
             animal.setAlive();
             this.setResource(animal.getWeight() + this.getResource());
-            System.out.println("Фермер " + this.getwName() + " забрил " + animal.getName() + " Получив " + animal.getWeight() + " Пищи");
+
         }
     }
 

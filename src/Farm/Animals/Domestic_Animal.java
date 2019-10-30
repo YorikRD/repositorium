@@ -43,7 +43,7 @@ public class Domestic_Animal extends Animal {
             System.out.println("Он жив");
             this.isAlive = true;
         } else {this.isAlive = false;
-        System.out.println("Он умер");}
+        System.out.println(this.getName() +"  умер");}
     }
 
     public boolean isConsumable() {
