@@ -3,10 +3,8 @@ package Farm;
 import Farm.Animals.Domestic_Animal;
 import Farm.Animals.WildAnimal;
 import Farm.Farmers.Farmer;
-import javafx.css.Match;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class Farm {
     int farmSize = 12;
@@ -35,7 +33,7 @@ public class Farm {
         }
         System.out.println(freeSp);
         if (newDomestic_Animals.length > freeSp) {
-            System.out.println("К сожалению в библиотеке не хватает места для добавления " + (newDomestic_Animals.length - freeSp) + "особей");
+            System.out.println("К сожалению на ферме не хватает места для добавления " + (newDomestic_Animals.length - freeSp) + "особей");
             return;
         }
         for (int i = 0; i < this.farm.length; i++) {
@@ -62,7 +60,8 @@ public class Farm {
                     farmAlive = farmAlive +1;
                 }
             }
-            if (farmer.getResource()<= 5){
+
+            if (farmer.getResource()< 5){
                 if (farmAlive >0){
                     for (int i =0; i< farmQuant; i++) {
                         farmer.killForRes(farm[i]);
@@ -72,31 +71,38 @@ public class Farm {
                     }
                 }
             }
-            farmer.consumeRes(); //Пункт 1 фермер ест.
 //            System.out.println(farmer.getResource());
             if (farmer.dieFrHung()) { // проверка не умер ли он от голода
-                System.out.println("Фермер " + farmer.getFarmName() + " Умер от голода на "+ci +" День");
+                System.out.println("Фермер " + farmer.getwName() + " Умер от голода на "+ci +" День");
                 return;
             }
+            System.out.println("Идёт день номер "+ ci +" У фермера "+farmer.getResource() +" Еды. На ферме "+farmAlive+":Живых животных" );
+            farmer.consumeRes(); //Пункт 1 фермер ест.
             for (int i = 0; i <= farm.length - 1; i++) {
                 if (farm[i] == null) {
                     break;
                 }
                 farmer.collect(farm[i]); //Собираем ресурс, в коллект встроена проверка на живость животного.
             }
-
-            System.out.println("Идёт день номер "+ ci +" У фермера "+farmer.getResource() +" Еды. На ферме "+farmAlive+":Живых животных" );
+            farmAlive = 0;
+            for (int l=0; l<farmQuant; l++){
+                if (farm[l].isAlive() ) {
+                    farmAlive = farmAlive +1;
+                }
+            }
             if (farmAlive > 0) {
                 int hunter = (int) (Math.random() * forest.length); // выбираем случайного охотника из леса
+                System.out.println(forest[hunter].getName());
                 if (forest[hunter].getFri() < 3){
 
                 int prey = (int) (Math.random() * farmQuant); // выбираем случайную жертву на ферме
                 System.out.println("случайная жертва до изменения - животное номер " + prey);
                 while (!farm[prey].isAlive()) { // перебираем жервт вока не найдется живая прерывание что живых нет выше
-                    prey = (int) (Math.random() * farmQuant); //Меняем чтоб она ещё и живая была
+                    prey = (int) (Math.random() * farmQuant); // где-то Тут содержится Баг!!!!
+                    System.out.println("выбрано живое животное"+farm[prey].getName()+"  " + farm[prey].isAlive());
 
                 }
-//                System.out.println("случайная жертва после измениея - животное номер " + prey);
+                System.out.println("случайная жертва после измениея - животное номер " + prey);
 //                System.out.println("Состояние жертвы до нападения " + farm[prey]);
                 forest[hunter].hunt(farm[prey]); //Охотимся
                 System.out.println("Хищник " + forest[hunter].getName() + " Напал на " + farm[prey].getName());

@@ -4,6 +4,9 @@ import Farm.Animals.Domestic_Animal;
 import Farm.Animals.WildAnimal;
 
 abstract public class WorkerCl implements Worker {
+    private String wName = "Unnamed till Now";
+    private int resource = 6;
+    private Boolean isAllive = true;
     @Override
     public void collect(Domestic_Animal animal) {
 

@@ -12,7 +12,9 @@ public class Domestic_Animal extends Animal {
     }
 
     public void setMaxHp(int maxHp) {
+        if (maxHp > 0){
         this.maxHp = maxHp;
+        }
     }
 
     public int getHealth() {

@@ -10,7 +10,9 @@ public class Animal {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name != null && !name.isEmpty()) {
+            this.name = name;
+        }
     }
 
     public int getSpeed() {
@@ -18,7 +20,9 @@ public class Animal {
     }
 
     public void setSpeed(int speed) {
+        if (speed > 0) {
         this.speed = speed;
+        }
     }
 
     public int getWeight() {
@@ -26,7 +30,9 @@ public class Animal {
     }
 
     public void setWeight(int weight) {
-        this.weight = weight;
+        if (weight > 0) {
+            this.weight = weight;
+        }
     }
 
     public Animal(String name, int speed, int weight) {

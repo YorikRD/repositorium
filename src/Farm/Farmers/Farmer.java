@@ -1,21 +1,19 @@
 package Farm.Farmers;
 
-import Farm.Animals.Animal;
 import Farm.Animals.Domestic_Animal;
 import Farm.Animals.WildAnimal;
-import Farm.Farm;
 
- public class Farmer extends WorkerCl {
-     protected String farmName = "Unnamed till Now";
-     protected int resource = 6;
+public class Farmer extends WorkerCl {
+     private String wName = "Unnamed till Now";
+     private int resource = 6;
      private Boolean isAllive = true;
 
-    public String getFarmName() {
-        return farmName;
+    public String getwName() {
+        return wName;
     }
 
-    public void setFarmName(String farmName) {
-        this.farmName = farmName;
+    public void setwName(String wName) {
+        this.wName = wName;
     }
 
     public int getResource() {
@@ -47,8 +45,7 @@ import Farm.Farm;
     public void scareWild(WildAnimal wildAnimal) {
 //        System.out.println("Попытка пугать");
         int rand =(int) (Math.random()*100);
-        System.out.println(rand);
-        if (rand >= 75){
+               if (rand >= 75){
            wildAnimal.setFri(wildAnimal.getFri()+1);
 //           System.out.println(wildAnimal.getName()+ "  Напуган");
         }
@@ -60,7 +57,7 @@ import Farm.Farm;
             animal.setHealth(animal.getHealth() - 20);
             animal.setAlive();
             this.setResource(animal.getWeight() + this.getResource());
-            System.out.println("Фермер " + this.getFarmName() + " забрил " + animal.getName() + " Получив " + animal.getWeight() + " Пищи");
+            System.out.println("Фермер " + this.getwName() + " забрил " + animal.getName() + " Получив " + animal.getWeight() + " Пищи");
         }
     }
 
@@ -73,7 +70,7 @@ import Farm.Farm;
 
      @Override
     public boolean dieFrHung() {
-        if (this.resource < 0){
+        if (this.resource <= 0){
             return true;
         } return false;
     }
@@ -83,8 +80,8 @@ import Farm.Farm;
         this.resource = this.resource  - 5;
     }
 
-    public Farmer(String farmName, int resource, Boolean isAllive) {
-        this.farmName = farmName;
+    public Farmer(String wName, int resource, Boolean isAllive) {
+        this.wName = wName;
         this.resource = resource;
         this.isAllive = isAllive;
     }
@@ -92,7 +89,7 @@ import Farm.Farm;
      @Override
      public String toString() {
          return "Farmer{" +
-                 "farmName='" + farmName + '\'' +
+                 "farmName='" + wName + '\'' +
                  ", resource=" + resource +
                  ", isAllive=" + isAllive +
                  '}';
