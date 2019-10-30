@@ -76,7 +76,6 @@ public class Farm {
                 System.out.println("Фермер " + farmer.getwName() + " Умер от голода на "+ci +" День");
                 return;
             }
-            System.out.println("Идёт день номер "+ ci +" У фермера "+farmer.getResource() +" Еды. На ферме "+farmAlive+":Живых животных" );
             farmer.consumeRes(); //Пункт 1 фермер ест.
             for (int i = 0; i <= farm.length - 1; i++) {
                 if (farm[i] == null) {
@@ -90,6 +89,7 @@ public class Farm {
                     farmAlive = farmAlive +1;
                 }
             }
+            System.out.println("Идёт день номер "+ ci +" У фермера "+farmer.getResource() +" Еды. На ферме "+farmAlive+":Живых животных" );
             if (farmAlive > 0) {
                 int hunter = (int) (Math.random() * forest.length); // выбираем случайного охотника из леса
                 System.out.println(forest[hunter].getName());
@@ -119,6 +119,7 @@ public class Farm {
                 }
             }
         }
+        System.out.println("Фурмер "+farmer.getwName()+" успешно пережил все трудности.");
     }
 
     public Domestic_Animal[] getFarm() {

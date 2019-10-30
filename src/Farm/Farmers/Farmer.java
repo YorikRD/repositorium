@@ -71,7 +71,7 @@ public class Farmer extends WorkerCl {
 
      @Override
     public boolean dieFrHung() {
-        if (this.resource <= 0){
+        if (this.resource <= 4){
             return true;
         } return false;
     }
