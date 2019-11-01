@@ -1,14 +1,14 @@
 package Farm.Animals;
 
 public class WildAnimal extends Animal {
-   protected int strength = 1;
-   protected int fri =0;
+    protected int strength = 1;
+    protected int fri = 0;
 
-    public int getFri () {
+    public int getFri() {
         return fri;
     }
 
-    public void setFri (int frigtened) {
+    public void setFri(int frigtened) {
         this.fri = frigtened;
     }
 
@@ -19,9 +19,10 @@ public class WildAnimal extends Animal {
     public void setStrength(int strength) {
         this.strength = strength;
     }
-    public void hunt (Domestic_Animal animal){
+
+    public void hunt(DomesticAnimal animal) {
         if (this.speed >= animal.getSpeed()) {
-            animal.setHealth(animal.getHealth()-this.strength);
+            animal.setHealth(animal.getHealth() - this.strength);
         }
     }
 

@@ -1,6 +1,6 @@
 package Farm.Animals;
 
-public class Domestic_Animal extends Animal {
+public class DomesticAnimal extends Animal {
     protected int health = 3;
     protected int resourceOutput = 0;
     protected boolean isAlive = true;
@@ -12,8 +12,8 @@ public class Domestic_Animal extends Animal {
     }
 
     public void setMaxHp(int maxHp) {
-        if (maxHp > 0){
-        this.maxHp = maxHp;
+        if (maxHp > 0) {
+            this.maxHp = maxHp;
         }
     }
 
@@ -42,8 +42,10 @@ public class Domestic_Animal extends Animal {
         if (this.getHealth() > 1) {
             System.out.println("Он жив");
             this.isAlive = true;
-        } else {this.isAlive = false;
-        System.out.println(this.getName() +"  умер");}
+        } else {
+            this.isAlive = false;
+            System.out.println(this.getName() + "  умер");
+        }
     }
 
     public boolean isConsumable() {
@@ -54,7 +56,7 @@ public class Domestic_Animal extends Animal {
         isConsumable = consumable;
     }
 
-    public Domestic_Animal(String name, int speed, int weight, int health, int resourceOutput, boolean isAlive, boolean isConsumable, int maxHp) {
+    public DomesticAnimal(String name, int speed, int weight, int health, int resourceOutput, boolean isAlive, boolean isConsumable, int maxHp) {
         super(name, speed, weight);
         this.health = health;
         this.resourceOutput = resourceOutput;
@@ -65,7 +67,7 @@ public class Domestic_Animal extends Animal {
 
     @Override
     public String toString() {
-        return "Domestic_Animal{" +
+        return "DomesticAnimal{" +
                 "health=" + health +
                 ", resourceOutput=" + resourceOutput +
                 ", isAlive=" + isAlive +
