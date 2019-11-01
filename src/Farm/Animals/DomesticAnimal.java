@@ -12,7 +12,7 @@ public class DomesticAnimal extends Animal {
     }
 
     public void setMaxHp(int maxHp) {
-        if (maxHp > 0) {
+        if (maxHp > 0 && maxHp >= this.health ) {
             this.maxHp = maxHp;
         }
     }
@@ -22,7 +22,9 @@ public class DomesticAnimal extends Animal {
     }
 
     public void setHealth(int health) {
-        this.health = health;
+        if (health > 0) {
+            this.health = health;
+        }
     }
 
     public int getResourceOutput() {
@@ -58,11 +60,11 @@ public class DomesticAnimal extends Animal {
 
     public DomesticAnimal(String name, int speed, int weight, int health, int resourceOutput, boolean isAlive, boolean isConsumable, int maxHp) {
         super(name, speed, weight);
-        this.health = health;
-        this.resourceOutput = resourceOutput;
-        this.isAlive = isAlive;
+        setHealth(health);
+        setResourceOutput(resourceOutput);
+        this.isAlive = true;
         this.isConsumable = isConsumable;
-        this.maxHp = maxHp;
+        setMaxHp(maxHp);
     }
 
     @Override

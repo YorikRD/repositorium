@@ -1,6 +1,6 @@
 package Farm.Farmers;
 
-import Farm.Animals.Domestic_Animal;
+import Farm.Animals.DomesticAnimal;
 import Farm.Animals.WildAnimal;
 
 abstract public class WorkerCl implements Worker {
@@ -8,17 +8,17 @@ abstract public class WorkerCl implements Worker {
     private int resource = 6;
     private Boolean isAllive = true;
     @Override
-    public void collect(Domestic_Animal animal) {
+    public void collect(DomesticAnimal animal) {
 
     }
 
     @Override
-    public void killForRes(Domestic_Animal animal) {
+    public void killForRes(DomesticAnimal animal) {
 
     }
 
     @Override
-    public void feed(Domestic_Animal animal) {
+    public void feed(DomesticAnimal animal) {
 
     }
 

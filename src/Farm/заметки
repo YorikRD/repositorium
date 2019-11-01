@@ -1,0 +1,5 @@
+Вывесть повторяющиеся элементы кода в методы.
+public Unit(String name, int speed){
+        setName(name);
+        setSpeed(speed);
+    }
