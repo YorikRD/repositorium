@@ -1,8 +1,13 @@
 package com.domaim.lesson6.units;
 
 public class Doctor extends BattleUnit {
-        static final int maxHp = 50;
+       private final int maxHp = 50;
         private static int nomb = 0;
+
+    @Override
+    public int getMaxHp() {
+        return maxHp;
+    }
 
     public static int getNomb() {
         return nomb;
@@ -12,9 +17,6 @@ public class Doctor extends BattleUnit {
         Doctor.nomb = nomb;
     }
 
-    public static int getMaxHp() {
-        return maxHp;
-    }
 
 
     public Doctor(String name, int speed, int attackScrore, int health) {
@@ -23,7 +25,7 @@ public class Doctor extends BattleUnit {
 
     @Override
     public void attack(Unit enemy){
-        if (this.speed > enemy.getSpeed()&& enemy.getHealth()<enemy.maxHp) {
+        if (this.speed > enemy.getSpeed()&& enemy.getHealth()<enemy.getMaxHp()) { //
             int enBs = enemy.getHealth();
             enemy.setHealth(enemy.getHealth()+this.attackScrore);
             int enAft =  enemy.getHealth();
@@ -35,8 +37,13 @@ public class Doctor extends BattleUnit {
         }
     }
 
-    public void healersMercy(BattleUnit healed){
-        this.setHealth(getMaxHp());
+    @Override
+    public void setHealth(int health) {
+        if (health <= this.getMaxHp()) {
+            super.setHealth(health);
+        } else {
+            this.health = this.getMaxHp();
+        }
     }
 
     @Override

@@ -2,7 +2,7 @@ package com.domaim.lesson6.units;
 
 public class King extends Unit {
 
-    static final int maxHp = 30;
+  private   final int  maxHp = 30;
     private static int nomb = 0;
 
     public static int getNomb() {
@@ -13,22 +13,31 @@ public class King extends Unit {
         King.nomb = nomb;
     }
 
-    public static int getMaxHp() {
+    public  int getMaxHp() {
         return maxHp;
     }
 
     public static King kingCoronation (BattleUnit annoiter){
-        King newKing = new King("324",12,22);
+        King newKing = new King("324",12,22,2);
         newKing.setName("Crowned by "+annoiter.getName()+" is " +getNomb() +"the world");
         King.setNomb(King.getNomb()+1);
         newKing.setSpeed(25+10-(int)(Math.random()*15));
-//        newKing.setHealth(16+10-(int)(Math.random()*15));  а вот здесь какой- то баг
+        newKing.setHealth(16+10-(int)(Math.random()*15));  // а вот здесь какой- то баг
         return newKing;
     }
 
-    private King(String name, int speed, int health) {
+    private King(String name, int speed, int health, int maxHp) {
         super(name, speed);
         this.health = health;
+
+    }
+    @Override
+    public void setHealth(int health) {
+        if (health <= this.getMaxHp()) {
+            super.setHealth(health);
+        } else {
+            this.health = this.getMaxHp();
+        }
     }
 
 

@@ -6,6 +6,15 @@ abstract public class Unit implements RestAble {
     protected int speed;
     protected int maxHp;
 
+
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+    public void setMaxHp(int maxHp) {
+        this.maxHp = maxHp;
+    }
+
     public String getName() {
         return name;
     }
@@ -23,11 +32,7 @@ abstract public class Unit implements RestAble {
     }
 
     public void setHealth(int health) {
-        if (health <= this.maxHp && health>0) {
             this.health = health;
-        } else {
-            this.health = this.maxHp;
-        }
     }
 
     public int getSpeed() {
