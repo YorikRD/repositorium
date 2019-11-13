@@ -5,7 +5,7 @@ public class main {
     public static void main(String[] args) {
         Employee markus = new Employee("Markus","Lego",2500,32);
         System.out.println(markus);
-        List<Employee> emplis = Employee.employeeGenerator(8);
+        List<Employee> emplis = Employee.employeeGenerator(25);
        for (int i =0; i<emplis.size(); i++){
            System.out.println(emplis.get(i));
        }

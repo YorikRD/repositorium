@@ -49,50 +49,66 @@ class EmpolyeSorterNum implements Comparator<Employee> {
     public int compare(Employee employee, Employee t1) {
         int value1 = 0;
         switch (sortingbynum.get(0)) {
-            case Name:
+            case Name:{
                 value1 = employee.getName().compareTo(t1.getName());
+            break;}
             case Company:
-                value1 = employee.getCompany().compareTo(t1.getCompany());
+                {value1 = employee.getCompany().compareTo(t1.getCompany());
+                break;}
             case Age:
-                value1 = employee.getAge() - t1.getAge();
+                {value1 = employee.getAge() - t1.getAge();
+                break;}
             case Sallary:
-                value1 = employee.getSalary() - t1.getSalary();
+                {value1 = employee.getSalary() - t1.getSalary();
+                break;}
         }
         if (value1 == 0) {
             int value2 = 0;
             switch (sortingbynum.get(1)) {
                 case Name:
-                    value2 = employee.getName().compareTo(t1.getName());
+                    {value2 = employee.getName().compareTo(t1.getName());
+                    break;}
                 case Company:
-                    value2 = employee.getCompany().compareTo(t1.getCompany());
+                    {value2 = employee.getCompany().compareTo(t1.getCompany());
+                    break;}
                 case Age:
-                    value2 = employee.getAge() - t1.getAge();
+                   { value2 = employee.getAge() - t1.getAge();
+                   break;}
                 case Sallary:
-                    value2 = employee.getSalary() - t1.getSalary();
+                    {value2 = employee.getSalary() - t1.getSalary();
+                    break;}
             }
             if (value2 == 0) {
                 int value3 = 0;
                 switch (sortingbynum.get(2)) {
                     case Name:
-                        value3 = employee.getName().compareTo(t1.getName());
+                        {value3 = employee.getName().compareTo(t1.getName());
+                        break;}
                     case Company:
-                        value3 = employee.getCompany().compareTo(t1.getCompany());
+                        {value3 = employee.getCompany().compareTo(t1.getCompany());
+                        break;}
                     case Age:
-                        value3 = employee.getAge() - t1.getAge();
+                       { value3 = employee.getAge() - t1.getAge();
+                       break;}
                     case Sallary:
-                        value3 = employee.getSalary() - t1.getSalary();
+                       { value3 = employee.getSalary() - t1.getSalary();
+                       break;}
                 }
                 if (value3 == 0) {
                     int value4 = 0;
                     switch (sortingbynum.get(3)) {
                         case Name:
-                            value4 = employee.getName().compareTo(t1.getName());
+                           { value4 = employee.getName().compareTo(t1.getName());
+                           break;}
                         case Company:
-                            value4 = employee.getCompany().compareTo(t1.getCompany());
+                            {value4 = employee.getCompany().compareTo(t1.getCompany());
+                            break;}
                         case Age:
-                            value4 = employee.getAge() - t1.getAge();
+                            {value4 = employee.getAge() - t1.getAge();
+                            break;}
                         case Sallary:
-                            value4 = employee.getSalary() - t1.getSalary();
+                            {value4 = employee.getSalary() - t1.getSalary();
+                            break;}
                     }
                     return value4;
                 } else {
