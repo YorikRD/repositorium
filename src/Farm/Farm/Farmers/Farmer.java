@@ -3,7 +3,7 @@ package Farm.Farmers;
 import Farm.Animals.DomesticAnimal;
 import Farm.Animals.WildAnimal;
 
-public class Farmer extends WorkerCl implements Worker {
+public class Farmer extends Farm.Farmers.WorkerCl implements Farm.Farmers.Worker {
     private String wName = "Unnamed till Now";
     private int resource = 6;
     private Boolean isAllive = true;

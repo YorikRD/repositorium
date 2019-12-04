@@ -1,9 +1,6 @@
 package task;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class MessageTask {
     public static void countEachPriority(List<Message> messageList) {
@@ -54,7 +51,6 @@ public class MessageTask {
         }
     }
 
-
         // TODO: Подсчитать количество сообщений для каждого кода сообщения
         //  Ответ в консоль
 
@@ -73,26 +69,49 @@ public class MessageTask {
         //  в котором они встретились в первоначальном списке
         //  Например, было: [{URGENT, 4}, {HIGH, 9}, {LOW, 3}, {HIGH, 9}]
         //  на выходе: [{URGENT, 4}, {HIGH, 9}, {LOW, 3}]
-        Set uniks =new HashSet();
-        uniks.addAll(messageList);
-        System.out.println("до обработки " + messageList);
+        System.out.println("До обработки " + messageList);
         System.out.println("длинной " +messageList.size());
-        System.out.println(uniks);
+
+        for (int  i =0; i <messageList.size(); i++){
+            for (int  j =i+1; j <messageList.size(); j++){
+                if (messageList.get(i).equals(messageList.get(j))){
+                    messageList.remove(j);
+                }
+            }
+        }
+
+
 //        messageList.addAll(uniks);
-//        System.out.println("после обработки " + messageList);
-//        System.out.println("длинной " +messageList.size());
+        System.out.println("после обработки " + messageList);
+        System.out.println("длинной " +messageList.size());
         return messageList;
     }
 
     public static void removeEach(List<Message> messageList, MessagePriority priority){
+        System.out.println(messageList);
+        for (int i =0; i < messageList.size(); i++){
+            if (messageList.get(i).getPriority() == priority){
+                messageList.remove(i);
+            }
+        }
+        System.out.println(messageList);
         // TODO: удалить из коллекции каждое сообщение с заданным приоритетом
         //  вывод в консоль до удаления и после удаления
     }
 
     public static void removeOther(List<Message> messageList, MessagePriority priority){
+        System.out.println(messageList);
+        for (int i =0; i < messageList.size(); i++){
+            if (messageList.get(i).getPriority() != priority){
+                messageList.remove(i);
+            }
+        }
+        System.out.println(messageList);
+
         // TODO: удалить из коллекции все сообщения, кроме тех, которые имеют заданный приоритет
         //  вывод в консоль до удаления и после удаления
     }
+
 
     public static void main(String[] args) {
         // вызов методов

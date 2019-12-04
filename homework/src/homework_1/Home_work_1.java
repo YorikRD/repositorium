@@ -65,7 +65,7 @@ public class Home_work_1 {
 //            System.out.println(aee[i]);
 //        }
         int eea[] = new int[Por]; // Создем массив с нормаль под не развернутую последовательность
-        for (int i = 0; i < (Por - 1); i++) {
+        for (int i = 0; i <= (Por - 1); i++) {
             eea[i] = aee[((Por - 1) - i)];
         }
         eea[(Por - 1)] = aee[0]; // Опять записываем последнее теряемое
@@ -128,11 +128,13 @@ public class Home_work_1 {
             int firI = 0;
             int LasI = dl - 1;
 //            System.out.println(" ПОСЛЕДНЕЕ " + LasI);
+            int[] usano;
             while (firI <= LasI) {
                 int MidI =(firI + LasI) / 2;
 //                System.out.println("Cреднее " + MidI);
                 if (forSort[MidI] == source) {
                     System.out.printf(" Нужные пары чисел %s + %s", forSort[iter], forSort[MidI]);
+
                     break;
                 } else if (forSort[MidI] < source) {
                     firI = MidI + 1; // и вот здесь взрывается на 2 цикле выдаёт вместо 4 9

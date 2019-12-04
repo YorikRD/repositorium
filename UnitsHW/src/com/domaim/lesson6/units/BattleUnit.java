@@ -21,12 +21,12 @@ abstract public class BattleUnit extends Unit implements AttackAble{
 
     public static BattleUnit bUCrt(String type){
         if (type.equals("Doctor")){
-            BattleUnit doc = new Doctor("Dsas",18-(int)(Math.random()*15),16-(int)(Math.random()*7),20+10-(int)(Math.random()*15));
+            BattleUnit doc = new Doctor("Dsas",18-(int)(Math.random()*15),16-(int)(Math.random()*12),20+10-(int)(Math.random()*15));
             doc.setName("Doctor " +Doctor.getNomb());
             Doctor.setNomb(Doctor.getNomb()+1);
             return doc;
         } else if(type.equals("Knight")){
-            BattleUnit knig = new Knight("knight",18+10-(int)(Math.random()*15),12+10-(int)(Math.random()*15),30+10-(int)(Math.random()*15));
+            BattleUnit knig = new Knight("knight",18+10-(int)(Math.random()*15),35-(int)(Math.random()*15),30+10-(int)(Math.random()*15));
             knig.setName("Knight " +Knight.getNomb());
             Knight.setNomb(Knight.getNomb()+1);
             return  knig;
