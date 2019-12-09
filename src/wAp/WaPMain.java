@@ -23,6 +23,11 @@ public class WaPMain {
         wordcounter("love",strL);
         wordcounter("war",strL);
         printXrgouped(strL, 1,2,3,4,5,6,7,8,9,10);
+        tenMostFrequent(strL);
+
+        Map<Integer, String> reverse = new TreeMap<>(); // цаписать цикл реверсирования
+//        for (String string: woldsgr(strL).)
+
 
 
 //        HashMap<String, Integer> wordsNumb = new HashMap<>();
@@ -144,6 +149,32 @@ public class WaPMain {
         for (int i =0; i<ix.length; i++){
             System.out.println("В данном листе содержатся следующие слова длинны "+ix[i]+" : "+woldsgr(list).get(ix[i]));
         }
+
+    }
+
+    public static void tenMostFrequent (List<String> list){
+        Map <String, Integer> wordmap = new HashMap<>();
+        wordmap = getWordsCount(list);
+        TreeMap <Integer,ArrayList> nombmap = new TreeMap<>();
+        Iterator<Map.Entry<String, Integer>> iterator = wordmap.entrySet().iterator();
+        while (iterator.hasNext()){
+            Map.Entry<String, Integer> entry =iterator.next();
+            if(nombmap.containsKey(entry.getValue())){
+                String addinng = entry.getKey();
+                ArrayList<String> renewed = nombmap.get(entry.getValue());
+                renewed.add(addinng);
+                nombmap.put(entry.getValue(), renewed);
+            } else {
+                ArrayList<String> newCre = new ArrayList<String>();
+                newCre.add(entry.getKey());
+                nombmap.put(entry.getValue(),newCre);
+            }
+        }
+        System.out.println(nombmap);
+//        for (int i =0; i < 10; i++){
+//            System.out.println("Чаще всего встречается слво " + nombmap.get(nombmap.lastKey()-i) + " - " + (nombmap.lastKey()-i) + " раз." );
+//        }
+
 
     }
 
