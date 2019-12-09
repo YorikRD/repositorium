@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -188,6 +189,28 @@ public class WaPMain {
 
 
     }
+
+//    public static Array fileToLetters (File file) throws IOException {
+//        String string = null;
+//        String[] substr;
+//        try (FileInputStream fileInputStream = new FileInputStream(file);
+//             ByteArrayOutputStream outputStream = new ByteArrayOutputStream()
+//        ) {
+////            System.out.println(fileInputStream.available()); // проверяем идёт ли стрим
+//            byte[] buf = new byte[16]; // создаём буфер для работы со стримом
+//            int data;
+//            while ((data = fileInputStream.read(buf)) > 0) {
+//                outputStream.write(buf, 0, data);
+//            }
+//            string = new String(outputStream.toByteArray());
+//            String string2 = string
+//                    .toLowerCase()
+//                    .replaceAll("[a-z]","");
+//            Array[] arr = new Array[]{string2.toCharArray()};
+//
+//        }
+//
+//    }
 
 
 
