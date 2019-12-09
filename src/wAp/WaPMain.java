@@ -19,10 +19,11 @@ public class WaPMain {
         List<String> strL = new ArrayList<>();
         System.out.println(strL.isEmpty());
         strL.addAll(fileToStgList(file));
-        wordcounter("and",strL);
-        wordcounter("love",strL);
-        wordcounter("war",strL);
-        printXrgouped(strL, 1,2,3,4,5,6,7,8,9,10);
+        wordcounter("delegation",strL);
+//        wordcounter("love",strL);
+//        wordcounter("war",strL);
+//        printXrgouped(strL, 1,2,3,4,5,6,7,8,9,10);
+        System.out.println(byMaxInput(strL));
 
 
 //        HashMap<String, Integer> wordsNumb = new HashMap<>();
@@ -147,6 +148,13 @@ public class WaPMain {
 
     }
 
+    public static TreeMap<Integer, String> byMaxInput (List<String> list){ // не то переделать!к
+        Map <String, Integer> wordmap = getWordsCount(list);
+        TreeMap<Integer, String> order = new TreeMap<>();
+        for(Map.Entry<String, Integer> entry: wordmap.entrySet()){
+            order.put(entry.getValue(),entry.getKey());
+        } return order;
+    }
 
 
 }
