@@ -22,11 +22,10 @@ public class WaPMain {
         wordcounter("and",strL);
         wordcounter("love",strL);
         wordcounter("war",strL);
+        wordcounter("",strL);
         printXrgouped(strL, 1,2,3,4,5,6,7,8,9,10);
         tenMostFrequent(strL);
 
-        Map<Integer, String> reverse = new TreeMap<>(); // цаписать цикл реверсирования
-//        for (String string: woldsgr(strL).)
 
 
 
@@ -79,6 +78,14 @@ public class WaPMain {
         strings.addAll(strings3);
 
         cleanWords(strings);
+        for (int i =0; i<strings.size(); i++){
+            if (strings.get(i).equals("")){
+                strings.remove(i);
+            }
+            }
+
+
+
 //        System.out.println(strings);
         return strings;
     }
@@ -143,7 +150,8 @@ public class WaPMain {
                 wordcount.put(word.length(),set3);
             }
 
-        } return wordcount;
+        }
+        return wordcount;
     }
     public static void printXrgouped(List<String> list,int ...ix){ // и снова проверочный для группировки по длинне
         for (int i =0; i<ix.length; i++){
@@ -160,20 +168,23 @@ public class WaPMain {
         while (iterator.hasNext()){
             Map.Entry<String, Integer> entry =iterator.next();
             if(nombmap.containsKey(entry.getValue())){
+                if (!entry.getKey().isEmpty()){
                 String addinng = entry.getKey();
                 ArrayList<String> renewed = nombmap.get(entry.getValue());
                 renewed.add(addinng);
-                nombmap.put(entry.getValue(), renewed);
+                nombmap.put(entry.getValue(), renewed);}
             } else {
                 ArrayList<String> newCre = new ArrayList<String>();
                 newCre.add(entry.getKey());
                 nombmap.put(entry.getValue(),newCre);
             }
         }
-        System.out.println(nombmap);
-//        for (int i =0; i < 10; i++){
-//            System.out.println("Чаще всего встречается слво " + nombmap.get(nombmap.lastKey()-i) + " - " + (nombmap.lastKey()-i) + " раз." );
-//        }
+        Integer cicl =  nombmap.lastKey();
+        for (int i = 0; i<10; i++) {
+            System.out.println(" Слово/словосочениание " +" на "+(i+1) +" Месте "+nombmap.get(cicl) +" Встречается " + cicl + " Раз" );
+            Integer cicl2 =  nombmap.lowerKey(cicl);
+            cicl = cicl2;
+        }
 
 
     }
