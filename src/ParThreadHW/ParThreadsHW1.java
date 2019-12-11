@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -13,8 +14,6 @@ public class ParThreadsHW1 {
         File file = new File("resources/wp.txt");
         System.out.println(file.exists()); // проверки для себя
         System.out.println("Строк в файле " + mylineCounter(file));
-
-        int thrInSyst= Runtime.getRuntime().availableProcessors();
         int linecounter =0;
 
         ArrayList<Integer> stringsToRead = new ArrayList<>();
@@ -26,6 +25,7 @@ public class ParThreadsHW1 {
         SyncContainer container = new SyncContainer();
         System.out.println(container.wordsCount.isEmpty());
         ArrayList<SplitThread> splitThreads = splitThrFact(file,container);
+
         for(SplitThread thread:splitThreads){
             thread.start();
         }for(SplitThread thread:splitThreads){
@@ -35,7 +35,9 @@ public class ParThreadsHW1 {
                 e.printStackTrace();
             }
         }
-        mostFrequent(container.wordsCount,100);
+//        System.out.println(" Общий подсчёт :");
+//        mostFrequent(container.wordsCount,100);
+
 
 
     }
@@ -122,7 +124,7 @@ class SplitThread extends Thread { // Огромный и переусложнё
 
     @Override
     public void run() {
-        System.out.println("Поток начинает свою работу он работает со строками c " + stringsToRead.get(0) +" -ой по " +stringsToRead.get(1));
+        System.out.println("Поток"+Thread.currentThread().getName() +" начинает свою работу он работает со строками c " + stringsToRead.get(0) +" -ой по " +stringsToRead.get(1));
         List<String> lines = new ArrayList<>();
         Map<String, Integer> wordsMap = new HashMap<>();
         Path path = file.toPath();
@@ -130,8 +132,8 @@ class SplitThread extends Thread { // Огромный и переусложнё
            if (stringsToRead.get(1)<=(ParThreadsHW1.mylineCounter(file)/container.getThrInSyst()*(container.getThrInSyst()-1))) // Проверка не последний ли кусок файла читаем
            {
                lines = lineStream
-                       .skip(stringsToRead.get(0))
-                       .limit(stringsToRead.get(1))
+                       .skip(stringsToRead.get(0)) // Косяк тут, работает некорректно
+                       .limit(stringsToRead.get(1)) // Косяк тут, работает некорректно
                        .collect(Collectors.toList());
            } else { // у последнего читаем строки до конца чтобы не потерять остаток строк не кратно делящийся на процессор. В случае моей машины 3 строки в конце.
                lines = lineStream
@@ -141,6 +143,7 @@ class SplitThread extends Thread { // Огромный и переусложнё
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(Thread.currentThread().getName() +" has lenth of list string " + lines.size());
        for(String line:lines){
            String lineClear = new String();
            lineClear = line.toLowerCase()
@@ -161,6 +164,8 @@ class SplitThread extends Thread { // Огромный и переусложнё
                }
            }
        }
+//        System.out.println( Thread.currentThread().getName());
+//       ParThreadsHW1.mostFrequent(wordsMap, 5);
 //        System.out.println(wordsMap);
         try {
             container.fill(wordsMap);
