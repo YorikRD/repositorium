@@ -25,7 +25,8 @@ public class WaPMain {
         wordcounter("war",strL);
         wordcounter("",strL);
         printXrgouped(strL, 1,2,3,4,5,6,7,8,9,10);
-        tenMostFrequent(strL);
+        mostFrequent(strL, 100);
+//        System.out.println("потоков на данной машине " +Runtime.getRuntime().availableProcessors());
 
 
 
@@ -161,7 +162,7 @@ public class WaPMain {
 
     }
 
-    public static void tenMostFrequent (List<String> list){
+    public static void mostFrequent (List<String> list, int nomb){
         Map <String, Integer> wordmap = new HashMap<>();
         wordmap = getWordsCount(list);
         TreeMap <Integer,ArrayList> nombmap = new TreeMap<>();
@@ -170,10 +171,10 @@ public class WaPMain {
             Map.Entry<String, Integer> entry =iterator.next();
             if(nombmap.containsKey(entry.getValue())){
                 if (!entry.getKey().isEmpty()){
-                String addinng = entry.getKey();
-                ArrayList<String> renewed = nombmap.get(entry.getValue());
-                renewed.add(addinng);
-                nombmap.put(entry.getValue(), renewed);}
+                    String addinng = entry.getKey();
+                    ArrayList<String> renewed = nombmap.get(entry.getValue());
+                    renewed.add(addinng);
+                    nombmap.put(entry.getValue(), renewed);}
             } else {
                 ArrayList<String> newCre = new ArrayList<String>();
                 newCre.add(entry.getKey());
@@ -181,11 +182,14 @@ public class WaPMain {
             }
         }
         Integer cicl =  nombmap.lastKey();
-        for (int i = 0; i<10; i++) {
+        for (int i = 0; i<nomb; i++) {
             System.out.println(" Слово/словосочениание " +" на "+(i+1) +" Месте "+nombmap.get(cicl) +" Встречается " + cicl + " Раз" );
             Integer cicl2 =  nombmap.lowerKey(cicl);
             cicl = cicl2;
         }
+
+
+    }
 
 
     }
@@ -214,4 +218,4 @@ public class WaPMain {
 
 
 
-}
+//}
