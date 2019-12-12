@@ -35,8 +35,8 @@ public class ParThreadsHW1 {
                 e.printStackTrace();
             }
         }
-//        System.out.println(" Общий подсчёт :");
-//        mostFrequent(container.wordsCount,100);
+        System.out.println(" Общий подсчёт :");
+        mostFrequent(container.wordsCount,100);
 
 
 
@@ -128,12 +128,13 @@ class SplitThread extends Thread { // Огромный и переусложнё
         List<String> lines = new ArrayList<>();
         Map<String, Integer> wordsMap = new HashMap<>();
         Path path = file.toPath();
-       try (Stream<String> lineStream = Files.newBufferedReader(path).lines()) {
-           if (stringsToRead.get(1)<=(ParThreadsHW1.mylineCounter(file)/container.getThrInSyst()*(container.getThrInSyst()-1))) // Проверка не последний ли кусок файла читаем
+       try (Stream<String> lineStream = Files.lines(file.toPath())) {
+           if (stringsToRead.get(1)<=((ParThreadsHW1.mylineCounter(file)/container.getThrInSyst())*(container.getThrInSyst()-1)+container.getThrInSyst())) // Проверка не последний ли кусок файла читаем
            {
                lines = lineStream
-                       .skip(stringsToRead.get(0)) // Косяк тут, работает некорректно
-                       .limit(stringsToRead.get(1)) // Косяк тут, работает некорректно
+                       .skip(stringsToRead.get(0))
+                       .limit(stringsToRead.get(1)-stringsToRead.get(0))
+//                       .limit(5)
                        .collect(Collectors.toList());
            } else { // у последнего читаем строки до конца чтобы не потерять остаток строк не кратно делящийся на процессор. В случае моей машины 3 строки в конце.
                lines = lineStream
@@ -143,7 +144,10 @@ class SplitThread extends Thread { // Огромный и переусложнё
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(Thread.currentThread().getName() +" has lenth of list string " + lines.size());
+        System.out.println(Thread.currentThread().getName() +" has length of list string " + lines.size());
+//        System.out.println(Thread.currentThread().getName() + lines.get(0));
+//
+//        System.out.println(Thread.currentThread().getName() + lines.get(lines.size()-1));
        for(String line:lines){
            String lineClear = new String();
            lineClear = line.toLowerCase()
