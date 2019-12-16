@@ -1,17 +1,17 @@
 package task;
 
+import java.lang.reflect.Array;
 import java.util.Objects;
 import java.util.Random;
 
 public class Order {
     public  String name;
     public  int price;
-    static int nomb;
+    static String[] nomb = {"Жаркое", "Салат", "Десерт", "Напиток"};
 
     public Order() {
         Random random = new Random();
-        name = "Еда " + nomb +1;
-        nomb++;
+        name = nomb[random.nextInt(3)];
         price = random.nextInt(20);
             }
 
@@ -21,7 +21,7 @@ public class Order {
         if (!(o instanceof Order)) return false;
         Order order = (Order) o;
         return price == order.price &&
-                Objects.equals(name, order.name);
+                name.equals(order.name);
     }
 
     @Override
