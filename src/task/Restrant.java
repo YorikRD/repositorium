@@ -6,10 +6,10 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 public class Restrant {
     public static void main(String[] args) {
-        LinkedBlockingDeque toWaitress = new LinkedBlockingDeque(6);
-        LinkedBlockingDeque toCoook = new LinkedBlockingDeque(6);
-        ArrayBlockingQueue toClient = new ArrayBlockingQueue(10);
-        ArrayList<Client> clients = new ArrayList<Client>();
+        LinkedBlockingDeque<Order> toWaitress = new LinkedBlockingDeque<>(6);
+        LinkedBlockingDeque<Order> toCoook = new LinkedBlockingDeque<>(6);
+        ArrayBlockingQueue<Order> toClient = new ArrayBlockingQueue<>(10);
+        ArrayList<Client> clients = new ArrayList<>();
         for (int i=0;i<6;i++){
             Client cl= new Client("client "+i,toWaitress,toClient);
             clients.add(cl);
@@ -61,7 +61,7 @@ class Client implements Runnable{
             try {
                 toWaitress.put(order);
                 Thread.sleep(200);
-                toClient.remove(order);
+                System.out.println("Client takes "+toClient.take());
                 Thread.currentThread().interrupt();
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
