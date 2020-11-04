@@ -1,0 +1,14 @@
+many libraries of old times can work with old variants the calendar it must be library which allows the to work with date time API.
+all constructors for java.time are private. all instances must be created via static methods
+
+if date is crated not vwa form year-month-day (1236-07-12)
+
+Chronounit can call both time and data/time.
+long between return nimber of full timespaces between to dates.
+Choronounit compares full datas period compares only difference between enums i,e difference betwenn 01/05.2000 and
+ 01/06/2020 will be 1 mounth.
+
+ LocalDate+LOcalTime+LOcalDateTime share the same interfaces so their methods are generaly the same.
+ for time there is no difference between choronounit and duration
+
+ GregorianCalendar mounths are srtarted with 0 - Janury
