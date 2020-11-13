@@ -6,6 +6,7 @@ import java.net.Socket;
 
 public class SimpleServer {
     private Connection connection;
+    private static final long serialVersionUID = 1L;
 
     public void start() throws IOException, ClassNotFoundException {
         try(ServerSocket serverSocket = new ServerSocket(8090)) { // waiting for clients

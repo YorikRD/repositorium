@@ -8,6 +8,7 @@ public class Client {
     private String ip;
     private int port;
     private Scanner scanner;
+    private static final long serialVersionUID = 1L;
 
     public Client(String ip, int port) {
         this.ip = ip;
@@ -36,7 +37,7 @@ public class Client {
 
     public static void main(String[] args) {
         try {
-            new Client("127.0.0.1",8090).start();
+            new Client("192.168.88.242",8090).start();
         } catch (Exception e) {
             e.printStackTrace();
         }
